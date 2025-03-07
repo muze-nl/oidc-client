@@ -1,4 +1,4 @@
-import * as metro from '@muze-nl/metro'
+import metro from '@muze-nl/metro'
 import oidc from '@muze-nl/metro-oidc'
 
 export class oidcClient extends metroClient
@@ -34,7 +34,7 @@ export class oidcClient extends metroClient
 		if (issuer) {
 			options.oidc.issuer = issuer
 		}
-		let result = oidc.authenticate(options.oidc)
+		let result = await oidc.authenticate(options.oidc)
 		if (result) {
 			return new oidcClient(options)
 		} else {
